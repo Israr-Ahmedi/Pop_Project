@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElegantPOP | Premium Interior Design Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f8f8f8;
+            --accent-color: #a67c52;
+            --text-color: #333333;
+            --light-text: #777777;
+            --border-color: #eeeeee;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Poppins', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--primary-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: var(--spacing-sm) auto;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: var(--spacing-xs) 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: var(--spacing-md);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1758&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            padding: var(--spacing-sm);
+        }
+
+        .services {
+            background-color: var(--secondary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .service-card {
+            background-color: var(--primary-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-family: var(--body-font);
+            font-weight: 500;
+            color: var(--light-text);
+            transition: color 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--accent-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-sm);
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--spacing-sm);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .testimonials {
+            background-color: var(--secondary-color);
+        }
+
+        .testimonial-slide {
+            background-color: var(--primary-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background-color: var(--secondary-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-message {
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-sm);
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: white;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: var(--spacing-xs);
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: var(--spacing-md);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: var(--spacing-sm) 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ElegantPOP</a>
+            
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Beautiful POP Designs for Homes & Offices</h1>
+            <p class="hero-subtitle">Transform your spaces with our premium Plaster of Paris designs, crafted with precision and attention to detail for the perfect finish.</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-primary">View Gallery</a>
+                <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Our team working on a POP design">
+                </div>
+                <div class="about-text fade-in">
+                    <p>ElegantPOP specializes in creating exquisite Plaster of Paris designs that transform ordinary spaces into extraordinary environments. With over 10 years of experience, our skilled craftsmen deliver precision and artistry in every project.</p>
+                    <p>We take pride in our attention to detail, commitment to quality, and dedication to customer satisfaction. From conceptualization to installation, we work closely with our clients to bring their vision to life while ensuring functionality and durability.</p>
+                    <p>Our team stays updated with the latest trends and techniques in POP design to offer innovative solutions that enhance the aesthetic appeal and value of your property.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">False Ceilings</h3>
+                    <p>Elegant and functional false ceiling designs that enhance your space's aesthetics while hiding wiring and providing better insulation.</p>
+                    <ul>
+                        <li>Custom design patterns</li>
+                        <li>LED lighting integration</li>
+                        <li>Soundproofing options</li>
+                        <li>Moisture-resistant solutions</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3 class="service-title">Wall Panels</h3>
+                    <p>Transform plain walls into artistic statements with our custom POP wall panels that add texture and character to any room.</p>
+                    <ul>
+                        <li>3D wall designs</li>
+                        <li>Textured finishes</li>
+                        <li>Custom artwork integration</li>
+                        <li>Decorative moldings</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                    <h3 class="service-title">Mouldings & Cornices</h3>
+                    <p>Add elegance and sophistication with our detailed cornice work and decorative mouldings that create seamless transitions between walls and ceilings.</p>
+                    <ul>
+                        <li>Crown mouldings</li>
+                        <li>Decorative columns</li>
+                        <li>Archways and niches</li>
+                        <li>Custom design elements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ceilings">Ceilings</button>
+                <button class="filter-btn" data-filter="walls">Wall Panels</button>
+                <button class="filter-btn" data-filter="mouldings">Mouldings</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in" data-category="ceilings">
+                    <img src="https://images.unsplash.com/photo-1591989313526-7c653ceb0ae8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Modern POP ceiling design">
+                    <div class="gallery-caption">Modern Geometric Ceiling Design</div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="ceilings">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Elegant living room ceiling">
+                    <div class="gallery-caption">Elegant Living Room Ceiling</div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="walls">
+                    <img src="https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="3D wall panel design">
+                    <div class="gallery-caption">3D Wall Panel Design</div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="walls">
+                    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1627&q=80" alt="Textured wall decoration">
+                    <div class="gallery-caption">Textured Wall Decoration</div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="mouldings">
+                    <img src="https://images.unsplash.com/photo-1617104586646-62570b6f08b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Decorative cornice work">
+                    <div class="gallery-caption">Decorative Cornice Work</div>
+                </div>
+                
+                <div class="gallery-item fade-in" data-category="mouldings">
+                    <img src="https://images.unsplash.com/photo-15916073883494-44b8e2b15c9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ornate ceiling moulding">
+                    <div class="gallery-caption">Ornate Ceiling Moulding</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            
+            <div class="testimonial-slide fade-in">
+                <p class="testimonial-text">"ElegantPOP transformed our office space with their stunning ceiling designs. The team was professional, completed the work on time, and the results exceeded our expectations. Highly recommended!"</p>
+                <p class="testimonial-author">- Rajesh Kumar, Office Manager</p>
+            </div>
+            
+            <div class="testimonial-slide fade-in">
+                <p class="testimonial-text">"We hired ElegantPOP for our home renovation, and we couldn't be happier with the wall panels and mouldings they created. The craftsmanship is exceptional, and they paid attention to every detail."</p>
+                <p class="testimonial-author">- Priya Singh, Homeowner</p>
+            </div>
+            
+            <div class="testimonial-slide fade-in">
+                <p class="testimonial-text">"The false ceiling designed by ElegantPOP has completely changed the look of our restaurant. Our customers often compliment the ambiance, and we've seen an increase in business since the renovation."</p>
+                <p class="testimonial-author">- Amit Patel, Restaurant Owner</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Our Location</h3>
+                            <p>Amber Tower, TP-85 Road, Sarkhej<br>Ahmedabad, Gujarat </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Phone Number</h3>
+                            <p><a href="tel:+91 9737766953">+91 9737766953</a></p>
+                            <p>+91 9328348212</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email Address</h3>
+                            <p><a href="mailto:iahmedi739gmail.com">iahmedi739gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Monday - Saturday: 9AM - 6PM</p>
+                            <p>Sunday: Emergency services only</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <h3>Send us a Message</h3>
+                    <div id="formMessage" class="form-message"></div>
+                    <form id="quoteForm" action="submit_form.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectType" class="form-label">Project Type *</label>
+                            <select id="projectType" name="projectType" class="form-select" required>
+                                <option value="">Select Project Type</option>
+                                <option value="ceiling">False Ceiling</option>
+                                <option value="wall">Wall Panels</option>
+                                <option value="moulding">Mouldings & Cornices</option>
+                                <option value="complete">Complete Interior</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Details *</label>
+                            <textarea id="message" name="message" class="form-textarea" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reference" class="form-label">Upload Reference Images (Optional)</label>
+                            <input type="file" id="reference" name="reference[]" class="form-input" multiple accept="image/*">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">ElegantPOP</div>
+                <p>Transforming spaces with exquisite Plaster of Paris designs for homes and offices across India.</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#about" class="footer-link">About Us</a></li>
+                    <li><a href="#services" class="footer-link">Services</a></li>
+                    <li><a href="#gallery" class="footer-link">Gallery</a></li>
+                    <li><a href="#testimonials" class="footer-link">Testimonials</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#" class="footer-link">False Ceilings</a></li>
+                    <li><a href="#" class="footer-link">Wall Panels</a></li>
+                    <li><a href="#" class="footer-link">Mouldings & Cornices</a></li>
+                    <li><a href="#" class="footer-link">Custom Designs</a></li>
+                    <li><a href="#" class="footer-link">Commercial Projects</a></li>
+                    <li><a href="#" class="footer-link">Residential Projects</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container copyright">
+            <p>&copy; 2023 ElegantPOP. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+        
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+        
+        // Gallery filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Get filter value
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Show/hide gallery items based on filter
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Form submission with AJAX
+        const quoteForm = document.getElementById('quoteForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const projectType = document.getElementById('projectType').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && phone && projectType && message) {
+                // Create FormData object to handle file uploads
+                const formData = new FormData(quoteForm);
+                
+                // Send form data via AJAX
+                fetch('submit_form.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        formMessage.textContent = data.message;
+                        formMessage.classList.remove('error');
+                        formMessage.classList.add('success');
+                        quoteForm.reset();
+                    } else {
+                        formMessage.textContent = data.message;
+                        formMessage.classList.remove('success');
+                        formMessage.classList.add('error');
+                    }
+                })
+                .catch(error => {
+                    formMessage.textContent = 'There was an error submitting your form. Please try again.';
+                    formMessage.classList.remove('success');
+                    formMessage.classList.add('error');
+                });
+            } else {
+                formMessage.textContent = 'Please fill in all required fields.';
+                formMessage.classList.remove('success');
+                formMessage.classList.add('error');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
